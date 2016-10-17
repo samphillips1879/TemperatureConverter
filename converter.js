@@ -107,11 +107,25 @@ function conversionSelect() {
 			console.log("fahrenheit is selected");
 			tempOutput = toFahrenheit();
 			DOMOutput.innerHTML = tempOutput + " fahrenheit";
+			console.log(tempOutput);
+			if (tempOutput > 90) {
+				DOMOutput.style.color = "red";
+			} else if (tempOutput < 32) {
+				DOMOutput.style.color = "blue";
+			} else {
+				DOMOutput.style.color = "green";
+			}
 		} else if (celsius.checked === true) {
 			console.log("celcius is checked");
-			// toCelsius();
 			tempOutput = toCelsius();
 			DOMOutput.innerHTML = tempOutput + " celsius";
+			if (tempOutput > 32) {
+				DOMOutput.style.color = "red";
+			} else if (tempOutput < 0) {
+				DOMOutput.style.color = "blue";
+			} else {
+				DOMOutput.style.color = "green";
+			}
 
 		}
 	// alert(tempOutput);
