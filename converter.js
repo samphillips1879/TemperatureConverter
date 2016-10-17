@@ -44,8 +44,19 @@ function logInputNumber() {
 
 var convertButton = document.getElementById("convertButton");
 
+// var 
 
 
+// I don't quite understand why these next few lines work     '
+
+input.addEventListener("keypress", function (e) {
+  if (13 == e.keyCode) {
+     conversionSelect();
+  }
+});
+
+
+// ....... but they do, and that's good enough for me for now
 
 
 // convertButton.addEventListener("click", determineConverter);
@@ -60,6 +71,12 @@ var celsius = document.getElementById("celciusRadio");
 // function determineConverter() {
 // 	if (convertTo === "") {}
 // }
+
+
+
+function checkingSubmit() {
+	console.log("the user input text input has been submitted");
+}
 
 function toCelsius () {
 	inputValue = document.getElementById("userInput").value;
@@ -81,7 +98,7 @@ function toFahrenheit () {
 }
 
 
-
+var DOMOutput = document.getElementById("tempOutputPlaceholder")
 // var tempScale;
 var tempOutput;
 
@@ -89,14 +106,35 @@ function conversionSelect() {
 		if (fahrenheit.checked === true) {
 			console.log("fahrenheit is selected");
 			tempOutput = toFahrenheit();
+			DOMOutput.innerHTML = tempOutput + " fahrenheit";
+			console.log(tempOutput);
+			if (tempOutput > 90) {
+				DOMOutput.style.color = "red";
+			} else if (tempOutput < 32) {
+				DOMOutput.style.color = "blue";
+			} else {
+				DOMOutput.style.color = "green";
+			}
 		} else if (celsius.checked === true) {
 			console.log("celcius is checked");
-			// toCelsius();
 			tempOutput = toCelsius();
+			DOMOutput.innerHTML = tempOutput + " celsius";
+			if (tempOutput > 32) {
+				DOMOutput.style.color = "red";
+			} else if (tempOutput < 0) {
+				DOMOutput.style.color = "blue";
+			} else {
+				DOMOutput.style.color = "green";
+			}
 
 		}
 	// alert(tempOutput);
-	document.getElementById("tempOutputPlaceholder").innerHTML = tempOutput;
+	// DOMOutput.innerHTML = tempOutput + ;
+
+	// if (tempOutput{
+	// 	DOMOutput.style.color = red
+
+	// }
 }
 
 
